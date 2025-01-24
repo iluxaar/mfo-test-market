@@ -1,0 +1,5 @@
+SELECT email, SUM(orders.total_amount) as sum
+FROM users
+LEFT JOIN orders ON users.id = orders.user_id
+GROUP BY users.id
+HAVING sum < 100000
